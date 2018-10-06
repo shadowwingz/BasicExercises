@@ -1,5 +1,7 @@
 package sorting;
 
+import util.Utils;
+
 /**
  * Created by shadowwingz on 2018-10-06 17:58
  */
@@ -28,7 +30,7 @@ public class BubbleSort {
      * @param <T>   ...
      * @return 排序后的数组
      */
-    public <T extends Comparable<T>> T[] bubbleSorting(T[] array) {
+    private <T extends Comparable<T>> T[] bubbleSorting(T[] array) {
         int len = array.length;
         for (int i = 0; i < len; i++) {
             for (int j = i + 1; j < len; j++) {
@@ -44,10 +46,7 @@ public class BubbleSort {
                 }
             }
             System.out.println("i = " + i + " array = ");
-            for (T data : array) {
-                System.out.print(data + " ");
-            }
-            System.out.println();
+            Utils.printArray(array);
         }
         return array;
     }
@@ -58,8 +57,6 @@ public class BubbleSort {
         System.out.println("\n冒泡排序\n");
         Integer[] result = bubbleSorting.bubbleSorting(object);
         System.out.println("\n冒泡排序\n");
-        for (Integer i : result) {
-            System.out.print(i + " ");
-        }
+        Utils.printArray(result);
     }
 }
