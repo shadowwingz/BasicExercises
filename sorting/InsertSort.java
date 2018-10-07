@@ -1,11 +1,13 @@
 package sorting;
 
-import util.Utils;
-
 /**
+ * 通常人们整理扑克牌的方法是一张一张的来，将每一张牌插入到其他已经有序的牌中的适当位置。
+ * 在计算机的实现中，为了给要插入的元素腾出空间，我们需要将其余所有元素在插入之前都向右移动一位。
+ * 这种算法叫 插入排序。
+ * <p>
  * Created by shadowwingz on 2018-10-06 20:47
  */
-public class InsertSort {
+public class InsertSort extends BaseSort {
 
     /**
      * 插入排序的基本思想是，在遍历数组的过程中，假设在序号 i 之前的元素，
@@ -14,45 +16,24 @@ public class InsertSort {
      * 最后将 k 对应的元素值赋为 x，插入排序也是根据排序的特性来命名的。
      *
      * @param array 待排序的数组
-     * @param <T>   ...
-     * @return 排序后的数组
      */
-    private <T extends Comparable<T>> T[] insertSorting(T[] array) {
+    @Override
+    public void sort(Comparable[] array) {
         int len = array.length;
         // 每个元素选取出来作为插入元素
-        for (int i = 0; i < len; i++) {
-            T toInsert = array[i];
-            int j = i;
-            for (; j > 0; j--) {
-                /**
-                 * 原来顺序系列里从最大的数开始 和 现在选择的比较，
-                 * 如果找到比选择的数小的，就 break，
-                 * 此时已经记下了坐标保存到 j 中。
-                 */
-                if (array[j - 1].compareTo(toInsert) <= 0) {
-                    break;
-                }
-                /**
-                 * 如果选择的元素比顺序系列里的数小，那么腾位置。
-                 */
-                array[j] = array[j - 1];
+        for (int i = 1; i < len; i++) {
+            for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
+                exchange(array, j, j - 1);
             }
-
-            array[j] = toInsert;
-            System.out.print("i = " + i + " array = ");
-            Utils.printArray(array);
         }
-        return array;
     }
 
     public static void main(String[] args) {
         InsertSort insertSort = new InsertSort();
-        System.out.println("\n插入排序\n");
-        Integer[] object = {1, 2, 5, 4, 3};
-        Integer[] result = insertSort.insertSorting(object);
-        System.out.println("");
-        System.out.println("\n插入排序\n");
-        Utils.printArray(result);
-        System.out.println("\n插入排序\n");
+        System.out.println("插入排序\n");
+        Comparable[] array = {1, 2, 5, 4, 3};
+        printOriginArray(array);
+        insertSort.sort(array);
+        printSortedArray(array);
     }
 }
