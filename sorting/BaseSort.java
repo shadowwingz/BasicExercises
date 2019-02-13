@@ -5,7 +5,7 @@ package sorting;
  */
 abstract class BaseSort {
 
-    abstract void sort(Comparable[] array);
+    abstract public void sort(Comparable[] array);
 
     boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
