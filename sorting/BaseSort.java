@@ -29,16 +29,19 @@ abstract class BaseSort {
 
     static void printOriginArray(Comparable[] array) {
         System.out.println("排序前");
-        for (Comparable data : array) {
-            System.out.print(data + " ");
-        }
+        printArray(array);
         System.out.println();
     }
 
-    static void printSortedArray(Comparable[] result) {
+    static void printSortedArray(Comparable[] array) {
         System.out.println("排序后");
+        printArray(array);
+    }
+
+    static void printArray(Comparable[] result) {
         for (Comparable data : result) {
             System.out.print(data + " ");
         }
+        System.out.println();
     }
 }
