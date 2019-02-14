@@ -25,6 +25,7 @@ public class BubbleSort extends BaseSort {
                  */
                 if (less(array[j], array[i])) {
                     exchange(array, i, j);
+                    printArray(array);
                 }
             }
         }

@@ -41,6 +41,7 @@ public class SelectionSort extends BaseSort {
              * ...
              */
             exchange(array, i, min);
+            printArray(array);
         }
     }
 

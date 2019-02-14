@@ -18,6 +18,7 @@ public class ShellSort extends BaseSort {
             for (int i = h; i < N; i++) {
                 for (int j = i; j >= h && less(array[j], array[j - h]); j -= h) {
                     exchange(array, j, j - h);
+                    printArray(array);
                 }
             }
             h = h / 3;

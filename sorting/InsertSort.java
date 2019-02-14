@@ -24,6 +24,7 @@ public class InsertSort extends BaseSort {
         for (int i = 1; i < len; i++) {
             for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
                 exchange(array, j, j - 1);
+                printArray(array);
             }
         }
     }
