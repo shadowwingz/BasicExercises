@@ -1,5 +1,3 @@
-package sorting;
-
 /**
  * Created by shadowwingz on 2018-10-06 22:31
  */

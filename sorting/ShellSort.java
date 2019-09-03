@@ -1,5 +1,3 @@
-package sorting;
-
 /**
  * 希尔排序
  * <p>

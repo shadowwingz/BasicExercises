@@ -1,5 +1,3 @@
-package sorting;
-
 /**
  * 冒泡排序
  * <p>
