@@ -22,15 +22,21 @@ public class TwoSum {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
             /**
-             * map.containsKey(numbers[i]) 说明找到了需要的差值 result[1]，
-             * 接下来需要找到第一个值的索引 result[0]，
-             * result[0] 我们之前有保存过，在 HashMap 中，value 就是索引，所以 map.get(numbers[i]) 就能获取索引，
-             * 但是这个索引是编程中数组的索引，下标从 0 开始，我们需要相应的 +1，得到我们需要的索引。
-             * 接下来需要找到第二个值（差值）的索引 result[1]，results[1] 的数组索引是 i，所以我们需要的索引就是 i + 1
+             * map.containsKey(numbers[i]) 说明找到了需要的差值 result[1]，numbers[i] 就是 result[1]
              */
             if (map.containsKey(numbers[i])) {
+                /**
+                 * result[0] 是我们要找的第一个索引值，我们之前存储过这个索引，
+                 * 所以可以直接用 numbers[i] 作为 key 来取出这个索引。
+                 */
                 result[0] = map.get(numbers[i]) + 1;
+                /**
+                 * result[1] 是我们要找的第二个索引值（差值的索引），也就是 i 的值。
+                 */
                 result[1] = i + 1;
+                /**
+                 * 这里 break 可以提前停止循环，减少不必要的运算。
+                 */
                 break;
             } else {
                 /**
@@ -42,6 +48,7 @@ public class TwoSum {
                 map.put(target - numbers[i], i);
             }
         }
+        System.out.println(map);
         return result;
     }
 }
